@@ -1,6 +1,9 @@
 const accountId = 1234
 let email = "adi@google.com"
 var accPass= "1234" // fckedup scope
+
+// prefer not use vaar due to issue in block scope and functional scope
+
 accCity="kanpur" // can declare but shouldnt, declares it as global
 let accState; // undefined
 
