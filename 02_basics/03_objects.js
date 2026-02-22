@@ -1,4 +1,4 @@
-// object if constructor se bnega - always singleton 
+// object if constructor(object) se bnega - always singleton 
 // if made from literals - not singleton
 
 // singleton
