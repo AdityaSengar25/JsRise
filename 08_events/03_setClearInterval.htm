@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JsRise</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+
+    let intervalId;
+    
+    document.querySelector('#start').addEventListener('click',()=>{
+        if(!intervalId){ // if start button click multiple times then that no if times seperate interval will be created and only the last one will end with clearInterval, so to avoid this we will set intervalId to null after clearInterval and here use if condition
+        // 1. the interval once created remains even after clearInterval so in if if there alrady has a intervalid dont run another interval
+        //2. once the clearinterval is done the interval set to null so the if condition again becomes true
+            intervalId = setInterval(sayDate,1000,'hi');
+        }
+    })
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(intervalId)
+        intervalId=null; // sets the interval null
+        console.log("STOPPED")
+    })
+</script>
+</html>

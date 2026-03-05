@@ -1,3 +1,4 @@
+//with declaration syntax
 const promiseOne = new Promise(function(resolve, reject){
     //Do an async task
     // DB calls, cryptography, network
@@ -11,6 +12,7 @@ promiseOne.then(function(){
     console.log("Promise consumed");
 })
 
+//without declaration syntax
 new Promise(function(resolve, reject){
     setTimeout(function(){
         console.log("Async task 2");
@@ -21,9 +23,10 @@ new Promise(function(resolve, reject){
     console.log("Async 2 resolved");
 })
 
+// incase of passing value from resolve to then.
 const promiseThree = new Promise(function(resolve, reject){
     setTimeout(function(){
-        resolve({username: "Chai", email: "chai@example.com"})
+        resolve({username: "JsRise", email: "JsRise@example.com"})
     }, 1000)
 })
 
@@ -31,29 +34,29 @@ promiseThree.then(function(user){
     console.log(user);
 })
 
+//value chaining and error handling
 const promiseFour = new Promise(function(resolve, reject){
     setTimeout(function(){
         let error = true
         if (!error) {
-            resolve({username: "hitesh", password: "123"})
+            resolve({username: "aditya", password: "123"})
         } else {
             reject('ERROR: Something went wrong')
         }
     }, 1000)
 })
 
- promiseFour
- .then((user) => {
+promiseFour.then((user) => {
     console.log(user);
     return user.username
-}).then((username) => {
+}).then((username) => { // this then will get what is returned from the previous then // inside function can name it anything
     console.log(username);
-}).catch(function(error){
+}).catch(function(error){ // inside func can name it anything
     console.log(error);
 }).finally(() => console.log("The promise is either resolved or rejected"))
 
 
-
+// use of async/await insted of then.
 const promiseFive = new Promise(function(resolve, reject){
     setTimeout(function(){
         let error = true
@@ -65,7 +68,7 @@ const promiseFive = new Promise(function(resolve, reject){
     }, 1000)
 });
 
-async function consumePromiseFive(){
+async function consumePromiseFive(){ // this works but they dont handle error like then catch. so, try catch is used.
     try {
         const response = await promiseFive
         console.log(response);
@@ -99,4 +102,3 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 .catch((error) => console.log(error))
 
 // promise.all
-// yes this is also available, kuch reading aap b kro.
