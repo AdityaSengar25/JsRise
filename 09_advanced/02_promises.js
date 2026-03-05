@@ -34,7 +34,7 @@ promiseThree.then(function(user){
     console.log(user);
 })
 
-//value chaining and error handling
+// then chaining and error handling
 const promiseFour = new Promise(function(resolve, reject){
     setTimeout(function(){
         let error = true
@@ -79,11 +79,13 @@ async function consumePromiseFive(){ // this works but they dont handle error li
 
 consumePromiseFive()
 
+
+
 // async function getAllUsers(){
 //     try {
 //         const response = await fetch('https://jsonplaceholder.typicode.com/users')
 
-//         const data = await response.json()
+//         const data = await response.json() // the response parsing to JSON also takes time so it needs await
 //         console.log(data);
 //     } catch (error) {
 //         console.log("E: ", error);
@@ -92,7 +94,7 @@ consumePromiseFive()
 
 //getAllUsers()
 
-fetch('https://api.github.com/users/hiteshchoudhary')
+fetch('https://api.github.com/users/adityasengar25')
 .then((response) => {
     return response.json()
 })
@@ -101,4 +103,6 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 })
 .catch((error) => console.log(error))
 
-// promise.all
+// promise.all - The Promise.all() method returns a single Promise that resolves when all of the promises passed as an iterable have resolved or when the iterable contains no promises. It is typically used when there are multiple related asynchronous tasks that the overall code relies on to work successfully — all of whom we want to fulfill before the code execution continues.
+// Promise.all() will reject immediately upon any of the input promises rejecting.
+
