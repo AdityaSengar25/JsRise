@@ -29,7 +29,7 @@ function User(username, loginCount, isLoggedIn){
     }
     return this
 }
-
+ 
 //without using "new"- constructor func we wont get new instance and the value will be overwritten
 // 1. using new keyword an empty object gets created every time called as instance
 // 2. then a constructor func gets called and all the arguments get packet and returned through it
@@ -45,5 +45,4 @@ console.log(userOne.constructor);
 
 // true ✅ → if the object was created from that constructor
 
-// false ❌ → if it was notIt returns:
-
+// false ❌ → if it was not
