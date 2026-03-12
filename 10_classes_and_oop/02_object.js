@@ -3,7 +3,7 @@
     return num*5
 }
 
-multipleBy5.property = 2 // here the .property is judt an added property to the func i.e object (as everything in js is an object) and it can be named anything
+multipleBy5.property = 2 // here the .property is just an added property to the func i.e object (as everything in js is an object) and it can be named anything
 
 console.log(multipleBy5(5));
 console.log(multipleBy5.property);
